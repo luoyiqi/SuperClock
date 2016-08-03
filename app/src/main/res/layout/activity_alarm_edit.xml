@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ui.AlarmEditActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/material_grey_100">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Time"
+            android:id="@+id/time_field"
+            android:layout_margin="10dp" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/active_field"
+            android:layout_margin="10dp"
+            android:checked="true"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:padding="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_grey_100"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal">
+
+        <ToggleButton
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:text="SUN"
+            android:id="@+id/dow_sun"
+            android:checked="true"
+            android:layout_margin="1dp"
+            android:textOn="SUN"
+            android:textOff="SUN"
+            android:textSize="10sp" />
+
+        <ToggleButton
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:text="MOD"
+            android:id="@+id/dow_mon"
+            android:checked="true"
+            android:layout_margin="1dp"
+            android:textOff="MON"
+            android:textOn="MON"
+            android:textSize="10sp" />
+
+        <ToggleButton
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:text="TUE"
+            android:id="@+id/dow_tue"
+            android:checked="true"
+            android:layout_margin="1dp"
+            android:textOff="TUE"
+            android:textOn="TUE"
+            android:textSize="10sp" />
+
+        <ToggleButton
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:text="WED"
+            android:id="@+id/dow_wed"
+            android:checked="true"
+            android:layout_margin="1dp"
+            android:textOn="WED"
+            android:textOff="WED"
+            android:textSize="10sp" />
+
+        <ToggleButton
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:text="THU"
+            android:id="@+id/dow_thu"
+            android:checked="true"
+            android:layout_margin="1dp"
+            android:textOn="THU"
+            android:textOff="THU"
+            android:textSize="10sp" />
+
+        <ToggleButton
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:text="FRI"
+            android:id="@+id/dow_fri"
+            android:checked="true"
+            android:layout_margin="1dp"
+            android:textOn="FRI"
+            android:textOff="FRI"
+            android:textSize="10sp" />
+
+        <ToggleButton
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:text="SAT"
+            android:id="@+id/dow_sat"
+            android:checked="true"
+            android:layout_margin="1dp"
+            android:textOn="SAT"
+            android:textOff="SAT"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_grey_100"
+        android:layout_marginTop="10dp"
+        android:id="@+id/label_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Label"
+            android:textAllCaps="true"
+            android:id="@+id/textView2"
+            android:layout_margin="10dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/label_field"
+            android:layout_margin="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:hint="Name" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_grey_100"
+        android:layout_marginTop="10dp"
+        android:id="@+id/group_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Group"
+            android:textAllCaps="true"
+            android:id="@+id/textView4"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="None"
+            android:id="@+id/group_field"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_grey_100"
+        android:layout_marginTop="10dp"
+        android:id="@+id/ringtone_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Ringtone"
+            android:textAllCaps="true"
+            android:id="@+id/textView5"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="None"
+            android:id="@+id/ring_field"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+</LinearLayout>
