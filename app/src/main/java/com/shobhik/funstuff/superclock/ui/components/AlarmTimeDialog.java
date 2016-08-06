@@ -1,17 +1,23 @@
 package com.shobhik.funstuff.superclock.ui.components;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.shobhik.funstuff.superclock.AlarmPreferences;
 import com.shobhik.funstuff.superclock.R;
 import com.shobhik.funstuff.superclock.models.Alarm;
+import com.shobhik.funstuff.superclock.receivers.AlarmReceiver;
 import com.shobhik.funstuff.superclock.utils.Utils;
 
 import java.util.Calendar;
@@ -26,6 +32,8 @@ public class AlarmTimeDialog extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
 
     private Alarm xAlarm;
+    private AlarmManager alarmMgr;
+    private PendingIntent alarmIntent;
 
 
     @Override
@@ -53,9 +61,20 @@ public class AlarmTimeDialog extends DialogFragment
         TextView tv = (TextView) getActivity().findViewById(fieldid);
 //            timeField.setText(Utils.readableTime(xAlarm.getDate()));
         tv.setText(Utils.readableTime(xAlarm.getDate()));
-
+        Context mContext = getActivity();
+        setProposedAlarm(mContext, date);
     }
 
+    /** Detects if a proposed time is less than 24 hours ahead and corrects the day value.
+     *
+     * An hour/minute value less than the current time would normally result in a timestamp that
+     * exists in the past, instead of the future. This method ensures that proposed alarm times
+     * are always in the future.
+     *
+     * @param hourOfDay
+     * @param minute
+     * @return
+     */
     public Date resolveFutureDate(int hourOfDay, int minute) {
         final Calendar current = Calendar.getInstance();
         Calendar proposed = Calendar.getInstance();
@@ -81,5 +100,23 @@ public class AlarmTimeDialog extends DialogFragment
 
     }
 
+    public void setProposedAlarm(Context mContext, Date date) {
+        //Init
+        alarmMgr = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(mContext, AlarmReceiver.class);
+        alarmIntent = PendingIntent.getBroadcast(mContext, 0, intent, 0);
+        int snoozeBase = AlarmPreferences.getSnoozeBaseTime();
+        boolean snoozeFade = AlarmPreferences.isSnoozeIsFading();
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 8);
+        calendar.set(Calendar.MINUTE, 30);
+
+        long val = date.getTime();
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, date.getTime(),
+                1000 * snoozeBase, alarmIntent);
+        Log.v("SuperClock Alarm Setter", "Set Alarm: " + date.getTime() + ", " + snoozeBase + "second snooze " + snoozeFade);
+
+    }
 }
