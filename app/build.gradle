@@ -31,4 +31,6 @@ dependencies {
     compile 'com.github.satyan:sugar:1.5'
     compile 'com.google.code.gson:gson:2.2.+'
 
+    compile 'pl.bclogic:pulsator4droid:1.0.2'
+
 }

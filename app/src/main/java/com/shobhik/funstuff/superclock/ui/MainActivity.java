@@ -68,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(mContext, AlarmTriggerActivity.class);
+                startActivity(intent);
+                return true;
+            }
+        });
     }
 
 

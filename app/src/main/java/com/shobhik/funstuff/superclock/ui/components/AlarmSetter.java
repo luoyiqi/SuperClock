@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.shobhik.funstuff.superclock.AlarmPreferences;
 import com.shobhik.funstuff.superclock.receivers.AlarmReceiver;
+import com.shobhik.funstuff.superclock.utils.Utils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -36,7 +37,7 @@ public class AlarmSetter {
         alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, date.getTime(),
                 1000 * snoozeBase, alarmIntent);
         Log.v("SuperClock Alarm Setter", "Set Alarm: " + date.getTime() + ", " + snoozeBase + "second snooze " + snoozeFade);
-
+        Toaster.pop(mContext, "Set Alarm for " + Utils.readableDate(date));
     }
 
 }

@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="FC_TV"
-                android:background="@color/sbn_blue"
+                android:background="@color/colorPrimary"
                 android:focusable="false"
                 android:text="99"
                 android:textAppearance="?android:attr/textAppearanceLarge"

@@ -80,6 +80,8 @@ public class AlarmTimeDialog extends DialogFragment
         Calendar proposed = Calendar.getInstance();
         proposed.set(Calendar.HOUR_OF_DAY, hourOfDay);
         proposed.set(Calendar.MINUTE, minute);
+        proposed.set(Calendar.SECOND, 0);
+        proposed.set(Calendar.MILLISECOND, 0);
 
         //Check to see if the proposed date is in the future
         long t0 = current.getTimeInMillis();
@@ -117,6 +119,7 @@ public class AlarmTimeDialog extends DialogFragment
         alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, date.getTime(),
                 1000 * snoozeBase, alarmIntent);
         Log.v("SuperClock Alarm Setter", "Set Alarm: " + date.getTime() + ", " + snoozeBase + "second snooze " + snoozeFade);
+        Toaster.pop(mContext, "Set Alarm for " + Utils.readableDate(date));
 
     }
 }
