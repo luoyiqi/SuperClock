@@ -23,8 +23,6 @@ public class SuperClock extends Application {
         ifx.addCategory("visserone");
 //        LocalBroadcastManager.getInstance(this).registerReceiver(new AlarmReceiver(), ifx);
 //        Context.registerReceiver(new AlarmReceiver(), ifx);
-        AlarmPreferences.setSnoozeBaseTime(10*60);
-        AlarmPreferences.setSnoozeIsFading(true);
 
     }
     @Override

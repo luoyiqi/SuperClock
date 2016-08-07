@@ -15,7 +15,10 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context mContext, Intent intent) {
         Log.v("SuperClock", "Received Intent");
+        int id = intent.getIntExtra("alarm_id", 0);
+        Log.v("SuperClock", "Received Intent extra! ID=" + id);
         Intent intent2 = new Intent(mContext, AlarmTriggerActivity.class);
+        intent2.putExtra("alarm_id", id);
         intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(intent2);
 //        Toaster.pop(mContext.getApplicationContext(), "Triggered Alarm!");
