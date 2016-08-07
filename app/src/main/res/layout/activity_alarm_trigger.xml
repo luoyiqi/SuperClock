@@ -22,6 +22,14 @@
         <!--app:pulse_color="@color/colorAccent"-->
         <!--app:pulse_startFromScratch="false">-->
     <!--</com.shobhik.funstuff.superclock.ui.components.AlarmPulsar>-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pulse_done_view"
+        android:layout_gravity="center"
+        android:background="@drawable/big_green_circle"
+        android:visibility="gone" />
+
     <pl.bclogic.pulsator4droid.library.PulsatorLayout
         android:id="@+id/pulsator"
         android:layout_width="match_parent"

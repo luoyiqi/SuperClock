@@ -91,7 +91,7 @@ public class AlarmTimeDialog extends DialogFragment
         Log.v("DEBUG CHECK", "Proposed: " + t1);
         Log.v("DEBUG CHECK", "Diff: " + diff);
 
-        if(diff <0) {
+        if(diff < 0) {
             proposed.add(Calendar.DAY_OF_MONTH, 1);
         }
         Date currentDate = current.getTime();
